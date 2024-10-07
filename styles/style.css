@@ -1,0 +1,204 @@
+
+
+/*PAGRINDINIO TURINIO ATVAIZDAVIMAS*/
+
+.main-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /*patvarkyti su clamp*/
+    gap: 40px;
+    padding: 60px 16px 40px 16px;
+}
+
+.main-section .main-section_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-section .main-section_picture {
+    width: 100%;
+    height: clamp(280px, 59vw, 510px);
+}
+
+.main-section .main-section_picture img {
+    border-radius: 40px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-section .main-section_content-wrapper p {
+    margin-bottom: 20px;
+}
+
+
+@media (min-width: 768px) {
+    .main-section {
+        padding: 60px 32px 40px 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-section {
+        padding: 60px 40px 52px 40px;
+    }
+}
+
+/*H1 tago stilius .main-section elemente*/
+@media (max-width: 1279px) {
+    .main-section h1 {
+        max-width: 578px;
+    }
+
+    .main-section p {
+        max-width: 63ch;
+    }
+}
+
+@media (min-width: 1280px) {
+    .main-section .main-section_content {
+        /* padding: 60px 0 52px 0; */
+        flex-direction: row;
+        text-align: left;
+        align-items: start;
+    }
+
+    .main-section h1,
+    .main-section_content-wrapper {
+        flex: 1;
+    }
+
+}
+
+/*PAGRINDINIO TURINIO PABAIGA */
+
+/*SERVICES SECTION*/
+
+.services-section {
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(16px, 1.2vw, 20px)
+}
+
+.services-section .services-section_article {
+    background-color: var(--services-bg-color);
+    border-radius: 20px;
+    padding: 24px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    grid-column: span 12;
+    /*isplesk per visus 12 grid*/
+}
+
+/* .services-section_article h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 12px;
+    color: var(--secondary-color);
+}
+
+.services-section_article p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+} */
+
+/*pirmiem elementams, esantiems tiem konteineri uzdeda stilius, bus pritaikomi tik pirmiems div konteineri*/
+.services-section .services-section_article>div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.services-section .services-section_article>div h2 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    /* padding-bottom: 12px; */
+    color: var(--secondary-color);
+}
+
+.services-section .services-section_article>div p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+@media (min-width: 768px) {
+    .services-section {
+        padding: 0 32px;
+    }
+
+    .services-section .services-section_article {
+        grid-column: span 6;
+        /*isplecia per 6*/
+        align-items: start;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-section .services-section_article {
+        grid-column: span 3;
+        /*isplecia per 3 columns*/
+    }
+}
+
+.animation-section {
+    min-height: 100vh;
+    background-color: var(--text-color);
+    margin-top: 50px;
+}
+
+/*animacijos pribambasai*/
+.animation-section .box {
+    width: 100px;
+    height: 100px;
+    background-color: #ff6a3e;
+    animation-name: example, backgroundColorChange;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+
+}
+
+@keyframes example {
+    0% {
+        background-color: #ff6a3e;
+        transform: scale(1);
+        border-radius: 0;
+    }
+
+    50% {
+        background-color: green;
+        transform: scale(2);
+    }
+
+    100% {
+        background-color: var(--services-bg-color);
+        transform: scale(1);
+        border-radius: 50%;
+    }
+
+}
+
+/*animacijos kurimas*/
+@keyframes backgroundColorChange {
+    from {
+        margin-left: 0;
+    }
+
+    to {
+        margin-left: 200px;
+    }
+}

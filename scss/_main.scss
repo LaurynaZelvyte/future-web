@@ -1,0 +1,64 @@
+.main-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /*patvarkyti su clamp*/
+    gap: 40px;
+    padding: 60px 16px 40px 16px;
+
+    &_content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .main-section_picture {
+        width: 100%;
+        height: clamp(280px, 59vw, 510px);
+
+        & img {
+            border-radius: 40px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .main-section_content-wrapper p {
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: 768px) {
+        padding: 60px 32px 40px 32px;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 60px 40px 52px 40px;
+    }
+
+    @media (max-width: 1279px) {
+        h1 {
+            max-width: 578px;
+        }
+
+        & p {
+            max-width: 63ch;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        .main-section_content {
+            /* padding: 60px 0 52px 0; */
+            flex-direction: row;
+            text-align: left;
+            align-items: start;
+        }
+        
+        h1,
+        &_content-wrapper {
+            flex: 1;
+        }
+    }
+
+}
